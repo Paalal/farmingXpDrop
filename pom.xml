@@ -11,7 +11,7 @@
 
     <name>FarmingXpDrop</name>
 
-    <description>A plugin that drops xp-orbs while farming ressources, that don't usually drop xp-orbs</description>
+    <description>A plugin that drops xp-orbs while farming ressources.</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

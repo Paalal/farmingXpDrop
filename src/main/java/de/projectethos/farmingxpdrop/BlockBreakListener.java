@@ -119,4 +119,5 @@ public class BlockBreakListener implements Listener {
         List<String[]> blockLookup = coreProtectAPI.blockLookup(block, 3600);
         return blockLookup.size() > 0;
     }
+    //test
 }
