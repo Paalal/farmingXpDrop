@@ -30,5 +30,4 @@ public final class FarmingXpDrop extends JavaPlugin {
     public static CoreProtectAPI getCoreProtectAPI() {
         return coreProtectAPI;
     }
-    //test
 }
