@@ -1,0 +1,10 @@
+name: FarmingXpDrop
+version: '${project.version}'
+main: de.projectethos.farmingxpdrop.FarmingXpDrop
+api-version: 1.19
+authors: [ Palalal ]
+description: "A plugin that drops xp-orbs while farming ressources, that don't usually drop xp-orbs"
+depend: [CoreProtect]
+commands:
+  farmingXpDropTest:
+    description: Test command
