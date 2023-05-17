@@ -28,7 +28,7 @@ public class BlockBreakListener implements Listener {
         Block block = e.getBlock();
         if (!isFarmerResource(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(49) == 0) dropXP(block, rand.nextInt(2) + 1 );
+        if (rand.nextInt(89) == 0) dropXP(block, rand.nextInt(2) + 1 );
     }
 
     @EventHandler
@@ -36,7 +36,7 @@ public class BlockBreakListener implements Listener {
         Block block = e.getBlock();
         if (!isLog(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(24) == 0) dropXP(block, rand.nextInt(7) + 1 );
+        if (rand.nextInt(59) == 0) dropXP(block, rand.nextInt(7) + 1 );
     }
 
     @EventHandler
@@ -44,23 +44,23 @@ public class BlockBreakListener implements Listener {
         Block block = e.getBlock();
         if (!isLeaf(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(19) == 0) dropXP(block, rand.nextInt(2) + 1 );
+        if (rand.nextInt(79) == 0) dropXP(block, rand.nextInt(2) + 1 );
     }
 
     @EventHandler
-    public void onLowArcheologyResource(BlockBreakEvent e) {
+    public void onLowArcheologyResourceBreak(BlockBreakEvent e) {
         Block block = e.getBlock();
         if (!isLowArcheologyResource(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(34) == 0) dropXP(block, rand.nextInt(2) + 1 );
+        if (rand.nextInt(89) == 0) dropXP(block, rand.nextInt(2) + 1 );
     }
 
     @EventHandler
-    public void onHighArcheologyResource(BlockBreakEvent e) {
+    public void onHighArcheologyResourceBreak(BlockBreakEvent e) {
         Block block = e.getBlock();
         if (!isHighArcheologyResource(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(34) == 0) dropXP(block, rand.nextInt(4) + 1 );
+        if (rand.nextInt(89) == 0) dropXP(block, rand.nextInt(4) + 1 );
     }
 
     private boolean isFarmerResource(Material material) {
