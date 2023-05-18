@@ -5,8 +5,8 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.Ageable;
 import org.bukkit.block.data.BlockData;
-import org.bukkit.entity.Ageable;
 import org.bukkit.entity.ExperienceOrb;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -39,12 +39,12 @@ public class BlockBreakListener implements Listener {
         }
 
         if (material.equals(Material.WHEAT) || material.equals(Material.CARROT) || material.equals(Material.POTATO)) {
-            if (((Ageable) blockData).getAge() == 7 || rand.nextInt(29) == 0) dropXP(block, rand.nextInt(2) + 1);
+            if (((Ageable) blockData).getAge() == 7 && rand.nextInt(29) == 0) dropXP(block, rand.nextInt(2) + 1);
             return;
         }
 
         if (material.equals(Material.BEETROOTS)) {
-            if (((Ageable) blockData).getAge() == 3 || rand.nextInt(29) == 0) dropXP(block, rand.nextInt(2) + 1);
+            if (((Ageable) blockData).getAge() == 3 && rand.nextInt(29) == 0) dropXP(block, rand.nextInt(2) + 1);
         }
     }
 
@@ -53,7 +53,7 @@ public class BlockBreakListener implements Listener {
         Block block = e.getBlock();
         if (!isLog(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(59) == 0) dropXP(block, rand.nextInt(7) + 1 );
+        if (rand.nextInt(29) == 0) dropXP(block, rand.nextInt(5) + 1 );
     }
 
     @EventHandler
@@ -61,7 +61,7 @@ public class BlockBreakListener implements Listener {
         Block block = e.getBlock();
         if (!isLeaf(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(79) == 0) dropXP(block, rand.nextInt(2) + 1 );
+        if (rand.nextInt(29) == 0) dropXP(block, rand.nextInt(2) + 1 );
     }
 
     @EventHandler
@@ -69,7 +69,7 @@ public class BlockBreakListener implements Listener {
         Block block = e.getBlock();
         if (!isLowArcheologyResource(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(89) == 0) dropXP(block, rand.nextInt(2) + 1 );
+        if (rand.nextInt(49) == 0) dropXP(block, rand.nextInt(2) + 1 );
     }
 
     @EventHandler
@@ -77,7 +77,7 @@ public class BlockBreakListener implements Listener {
         Block block = e.getBlock();
         if (!isHighArcheologyResource(block.getState().getBlockData().getMaterial())) return;
         if (isPlayerPlaced(block)) return;
-        if (rand.nextInt(89) == 0) dropXP(block, rand.nextInt(4) + 1 );
+        if (rand.nextInt(49) == 0) dropXP(block, rand.nextInt(4) + 1 );
     }
 
     private boolean isFarmerBlock(Material material) {
@@ -134,6 +134,9 @@ public class BlockBreakListener implements Listener {
     private boolean isPlayerPlaced(Block block) {
         CoreProtectAPI coreProtectAPI = FarmingXpDrop.getCoreProtectAPI();
         List<String[]> blockLookup = coreProtectAPI.blockLookup(block, 3600);
-        return blockLookup.size() > 0;
+        for (String[] entry : blockLookup) {
+            if ((entry[6] + entry[7] + entry[8] + entry[9]).equals("0101")) return true;
+        }
+        return false;
     }
 }
